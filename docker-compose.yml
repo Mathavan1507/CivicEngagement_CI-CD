@@ -4,7 +4,7 @@ services:
  
   db:
     image: mysql:8.0
-    container_name: civic_db_1
+    container_name: civic_db
     restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-1507}
@@ -23,7 +23,7 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    container_name: civic_backend_1
+    container_name: civic_backend
     restart: unless-stopped
     depends_on:
       db:
@@ -41,7 +41,7 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
-    container_name: civic_frontend_1
+    container_name: civic_frontend
     restart: unless-stopped
     depends_on:
       - backend
